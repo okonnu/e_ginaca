@@ -295,21 +295,21 @@ function set_metrics(pload) {
             case 1:
                 addData1(eff)
                 break;
-            case 2:
-                addData2(eff)
-                break;
-            case 3:
-                addData3(eff)
-                break;
-            case 4:
-                addData4(eff)
-                break;
-            case 5:
-                addData5(eff)
-                break;
-            case 6:
-                addData6(eff)
-                break;
+                // case 2:
+                //     addData2(eff)
+                //     break;
+                // case 3:
+                //     addData3(eff)
+                //     break;
+                // case 4:
+                //     addData4(eff)
+                //     break;
+                // case 5:
+                //     addData5(eff)
+                //     break;
+                // case 6:
+                //     addData6(eff)
+                //     break;
 
             default:
                 break;
