@@ -26,6 +26,12 @@ const ds = [{
     ]
 }]
 
+let target_l1 = 200
+let target_l2 = 300
+let target_l3 = 400
+let target_l4 = 400
+let target_l5 = 300
+let target_l6 = 300
 
 
 
@@ -180,14 +186,11 @@ function openmodal() {
 // retrieve settings from python, and save on js
 eel.expose(set_jsconfigs);
 
-function set_jsconfigs(clientid, left, right, targetl, targetr) {
+function set_jsconfigs(tl1, tl2, tl3, tl4, tl5, tl6) {
     // console.log(client_id)
-    client_id = clientid;
-    left_l = left;
-    right_l = right;
-    target_l = targetl;
-    target_r = targetr;
-    document.getElementById("target1").innerHTML = target_l
+    target_l1 = tl1,
+        target_l1 = tl1,
+        document.getElementById("target1").innerHTML = target_l
     document.getElementById("target2").innerHTML = target_r
 }
 
@@ -283,33 +286,46 @@ function set_metrics(pload) {
         //labeller number
         const lab_num = payload.clientID.replace(/^\D+/g, '');
         console.log(payload.clientID)
-            //client id
+
+        //client id
         document.getElementById("l" + lab_num).innerHTML = 'LABELLER ' + lab_num
             // cans
         document.getElementById("cans" + lab_num).innerHTML = payload.cans
             // speed
         document.getElementById("speed" + lab_num).innerHTML = payload.lspeed
             // efficiency
-        eff = (payload.lspeed / target_l) * 100
+
         switch (lab_num) {
             case 1:
+                document.getElementById("target" + lab_num).innerHTML = target_l1
+                eff = (payload.lspeed / target_l1) * 100
                 addData1(eff)
                 break;
-                // case 2:
-                //     addData2(eff)
-                //     break;
-                // case 3:
-                //     addData3(eff)
-                //     break;
-                // case 4:
-                //     addData4(eff)
-                //     break;
-                // case 5:
-                //     addData5(eff)
-                //     break;
-                // case 6:
-                //     addData6(eff)
-                //     break;
+            case 2:
+                document.getElementById("target" + lab_num).innerHTML = target_l2
+                eff = (payload.lspeed / target_l2) * 100
+                addData2(eff)
+                break;
+            case 3:
+                document.getElementById("target" + lab_num).innerHTML = target_l3
+                eff = (payload.lspeed / target_l3) * 100
+                addData3(eff)
+                break;
+            case 4:
+                document.getElementById("target" + lab_num).innerHTML = target_l4
+                eff = (payload.lspeed / target_l4) * 100
+                addData4(eff)
+                break;
+            case 5:
+                document.getElementById("target" + lab_num).innerHTML = target_l5
+                eff = (payload.lspeed / target_l5) * 100
+                addData5(eff)
+                break;
+            case 6:
+                document.getElementById("target" + lab_num).innerHTML = target_l6
+                eff = (payload.lspeed / target_l6) * 100
+                addData6(eff)
+                break;
 
             default:
                 break;
