@@ -285,7 +285,7 @@ function set_metrics(pload) {
 
         //labeller number
         const lab_num = payload.clientID.replace(/^\D+/g, '');
-        console.log(payload.clientID)
+        // console.log(payload.clientID)
 
         //client id
         document.getElementById("l" + lab_num).innerHTML = 'LABELLER ' + lab_num
