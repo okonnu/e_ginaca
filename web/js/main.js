@@ -300,6 +300,7 @@ function set_metrics(pload) {
                 document.getElementById("target" + lab_num).innerHTML = target_l1
                 eff = (payload.lspeed / target_l1) * 100
                 addData1(eff)
+                console.log(target_l1)
                 break;
             case 2:
                 document.getElementById("target" + lab_num).innerHTML = target_l2
