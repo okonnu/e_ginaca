@@ -285,7 +285,7 @@ function set_metrics(pload) {
         const lab_num = payload.clientID.replace(/^\D+/g, '');
 
         //client id
-        document.getElementById("l" + lab_num).innerHTML = lab_num
+        document.getElementById("l" + lab_num).innerHTML = 'LABELLING ' + lab_num
             // cans
         document.getElementById("cans" + lab_num).innerHTML = payload.cans
             // speed
