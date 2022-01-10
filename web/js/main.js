@@ -26,12 +26,14 @@ const ds = [{
     ]
 }]
 
-let target_c1 = 200
+let target_c1 = 300
 let target_c2 = 300
-let target_c3 = 400
-let target_c4 = 400
-let target_c5 = 300
+let target_c3 = 300
+let target_c4 = 300
 let target_c6 = 300
+let target_c7 = 300
+let target_c8 = 300
+let target_c9 = 300
 
 
 
@@ -347,45 +349,37 @@ function set_metrics(pload) {
 
         switch (parseInt(lab_num)) {
             case 1:
-                document.getElementById("target1").innerHTML = target_c1
                 eff = (payload.lspeed / target_c1) * 100
                 addData1(eff)
                 console.log(target_c1)
                 break;
             case 2:
-                document.getElementById("target2").innerHTML = target_c2
                 eff = (payload.lspeed / target_c2) * 100
                 addData2(eff)
                 break;
             case 3:
-                document.getElementById("target3").innerHTML = target_c3
                 eff = (payload.lspeed / target_c3) * 100
                 addData3(eff)
                 break;
             case 4:
-                document.getElementById("target4").innerHTML = target_c4
                 eff = (payload.lspeed / target_c4) * 100
                 addData4(eff)
                 break;
 
             case 6:
-                document.getElementById("target6").innerHTML = target_c6
                 eff = (payload.lspeed / target_c6) * 100
                 addData6(eff)
                 console.log("L6 target" + target_c6)
                 break;
             case 7:
-                document.getElementById("target7").innerHTML = target_c7
                 eff = (payload.lspeed / target_c7) * 100
                 addData7(eff)
                 break;
             case 8:
-                document.getElementById("target8").innerHTML = target_c8
                 eff = (payload.lspeed / target_c8) * 100
                 addData8(eff)
                 break;
             case 9:
-                document.getElementById("target9").innerHTML = target_c9
                 eff = (payload.lspeed / target_c9) * 100
                 addData9(eff)
                 break;
