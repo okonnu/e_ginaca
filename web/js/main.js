@@ -19,7 +19,7 @@ const opts = {
 }
 
 const ds = [{
-    data: ["10", "90"],
+    data: ["1", "99"],
     backgroundColor: [
         initcolo,
         "transparent"
