@@ -294,13 +294,13 @@ function set_metrics(pload) {
             // speed
         document.getElementById("speed" + lab_num).innerHTML = payload.lspeed
             // efficiency
-        console.log(target_l1)
+
         switch (lab_num) {
             case 1:
                 document.getElementById("target1").innerHTML = target_l1
                 eff = (payload.lspeed / target_l1) * 100
                 addData1(eff)
-
+                console.log(target_l1)
                 break;
             case 2:
                 document.getElementById("target2").innerHTML = target_l2
