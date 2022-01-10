@@ -339,7 +339,7 @@ function set_metrics(pload) {
         // console.log(payload.clientID)
 
         //client id
-        document.getElementById("l" + lab_num).innerHTML = 'SEAMER ' + lab_num
+        document.getElementById("c" + lab_num).innerHTML = 'SEAMER ' + lab_num
             // cans
         document.getElementById("cans" + lab_num).innerHTML = payload.cans
             // speed
