@@ -297,33 +297,33 @@ function set_metrics(pload) {
 
         switch (lab_num) {
             case 1:
-                document.getElementById("target" + lab_num).innerHTML = target_l1
+                document.getElementById("target1" + lab_num).innerHTML = target_l1
                 eff = (payload.lspeed / target_l1) * 100
                 addData1(eff)
                 console.log(target_l1)
                 break;
             case 2:
-                document.getElementById("target" + lab_num).innerHTML = target_l2
+                document.getElementById("target2" + lab_num).innerHTML = target_l2
                 eff = (payload.lspeed / target_l2) * 100
                 addData2(eff)
                 break;
             case 3:
-                document.getElementById("target" + lab_num).innerHTML = target_l3
+                document.getElementById("target3" + lab_num).innerHTML = target_l3
                 eff = (payload.lspeed / target_l3) * 100
                 addData3(eff)
                 break;
             case 4:
-                document.getElementById("target" + lab_num).innerHTML = target_l4
+                document.getElementById("target4" + lab_num).innerHTML = target_l4
                 eff = (payload.lspeed / target_l4) * 100
                 addData4(eff)
                 break;
             case 5:
-                document.getElementById("target" + lab_num).innerHTML = target_l5
+                document.getElementById("target5" + lab_num).innerHTML = target_l5
                 eff = (payload.lspeed / target_l5) * 100
                 addData5(eff)
                 break;
             case 6:
-                document.getElementById("target" + lab_num).innerHTML = target_l6
+                document.getElementById("target6" + lab_num).innerHTML = target_l6
                 eff = (payload.lspeed / target_l6) * 100
                 addData6(eff)
                 break;
