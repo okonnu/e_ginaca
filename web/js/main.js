@@ -273,19 +273,18 @@ function set_metrics(pload) {
 
     str = pload.substring(2);
     str = str.slice(0, -1);
-    console.log(str)
     payload = JSON.parse(str)
 
 
     //  {"clientID":"L1","cans":"0","packs":"0","lcases":"0","cases":"0","lspeed":"0","tstamp":"13917942","targetcases":"240","canspercase":"24","unitspercase":"1","hr_output":"0,0,0,0,0,0,0,0,0"}
-    if (payload.clientID.replace(/[0-9]/g, '') == L) {
+    if (payload.clientID.replace(/[0-9]/g, '') == 'L') {
 
 
         //labeller number
         const lab_num = payload.clientID.replace(/^\D+/g, '');
 
         //client id
-        document.getElementById("l" + lab_num).innerHTML = 'LABELLING ' + lab_num
+        document.getElementById("l" + lab_num).innerHTML = 'LABELLER ' + lab_num
             // cans
         document.getElementById("cans" + lab_num).innerHTML = payload.cans
             // speed
