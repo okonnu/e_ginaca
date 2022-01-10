@@ -326,6 +326,7 @@ function set_metrics(pload) {
                 document.getElementById("target6").innerHTML = target_l6
                 eff = (payload.lspeed / target_l6) * 100
                 addData6(eff)
+                console.log("L6 target" + target_l6)
                 break;
 
             default:
