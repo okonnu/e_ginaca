@@ -278,42 +278,44 @@ function set_metrics(pload) {
 
 
     //  {"clientID":"L1","cans":"0","packs":"0","lcases":"0","cases":"0","lspeed":"0","tstamp":"13917942","targetcases":"240","canspercase":"24","unitspercase":"1","hr_output":"0,0,0,0,0,0,0,0,0"}
+    if (payload.clientID.replace(/[0-9]/g, '') == L) {
 
-    //labeller number
-    const lab_num = payload.clientID.replace(/^\D+/g, '');
 
-    //client id
-    document.getElementById("l" + lab_num).innerHTML = lab_num
-        // cans
-    document.getElementById("cans" + lab_num).innerHTML = payload.cans
-        // speed
-    document.getElementById("speed" + lab_num).innerHTML = payload.lspeed
-        // efficiency
-    eff = (payload.lspeed / target_l) * 100
-    switch (lab_num) {
-        case 1:
-            addData1(eff)
-            break;
-        case 2:
-            addData2(eff)
-            break;
-        case 3:
-            addData3(eff)
-            break;
-        case 4:
-            addData4(eff)
-            break;
-        case 5:
-            addData5(eff)
-            break;
-        case 6:
-            addData6(eff)
-            break;
+        //labeller number
+        const lab_num = payload.clientID.replace(/^\D+/g, '');
 
-        default:
-            break;
+        //client id
+        document.getElementById("l" + lab_num).innerHTML = lab_num
+            // cans
+        document.getElementById("cans" + lab_num).innerHTML = payload.cans
+            // speed
+        document.getElementById("speed" + lab_num).innerHTML = payload.lspeed
+            // efficiency
+        eff = (payload.lspeed / target_l) * 100
+        switch (lab_num) {
+            case 1:
+                addData1(eff)
+                break;
+            case 2:
+                addData2(eff)
+                break;
+            case 3:
+                addData3(eff)
+                break;
+            case 4:
+                addData4(eff)
+                break;
+            case 5:
+                addData5(eff)
+                break;
+            case 6:
+                addData6(eff)
+                break;
+
+            default:
+                break;
+        }
+
     }
-
-
 
 }
