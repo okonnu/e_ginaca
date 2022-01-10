@@ -1,6 +1,4 @@
-/* Add a black background color to the top navigation */
-
-.topnav {
+dd a black background color to the top navigation */ .topnav {
     background-color: #333;
     overflow: hidden;
 }
@@ -45,13 +43,13 @@
 }
 
 .card-title {
-    font-size: 40px;
+    font-size: 35px;
     color: white;
     margin-right: 5px;
 }
 
 .efficiency {
-    font-size: 100px;
+    font-size: 70px;
     color: white;
 }
 
@@ -65,7 +63,7 @@ body {
 }
 
 .card-text {
-    font-size: 14px;
+    font-size: 25px;
 }
 
 .svg_red {
@@ -103,6 +101,7 @@ form label {
 
 .relative {
     position: relative;
+    text-align: center;
 }
 
 .absolute-center {
@@ -116,7 +115,19 @@ form label {
     text-align: center;
 }
 
-p {
+span.ttl {
     font-size: 1.5rem;
     color: white;
+}
+
+canvas {
+    height: 300px !important;
+    width: 300px !important;
+    padding: 0;
+    margin: auto;
+    display: block;
+}
+
+.border {
+    padding: 2%;
 }

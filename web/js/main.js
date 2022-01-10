@@ -1,59 +1,77 @@
 document.addEventListener('contextmenu', event => event.preventDefault());
 
-let left_l = 'L2'
-let right_l = 'L1'
-let queue1 = []
-let queue2 = []
-let target_l = 400
-let target_r = 200
-let hourly_l = ''
-let hourly_r = ''
-let client_id = ''
-
 
 initcolo = perc2color(10)
+const opts = {
+    cutout: 110,
+    responsive: false,
+    plugins: {
+        legend: {
+            display: false,
+        }
+    },
+    tooltips: {
+        enabled: false
+    },
+    animation: {
+        duration: 500
+    }
+}
+
+const ds = [{
+    data: ["10", "90"],
+    backgroundColor: [
+        initcolo,
+        "transparent"
+    ]
+}]
+
+
+
+
 var myChart1 = new Chart(document.getElementById('mychart1'), {
     type: 'doughnut',
     data: {
-        labels: ["Efficiency", ""],
-        datasets: [{
-            label: 'Efficiency',
-            data: ["1", "99"],
-            backgroundColor: [
-                initcolo,
-                "transparent"
-            ]
-        }]
+        datasets: ds
     },
-    options: {
-        responsive: true,
-        legend: false,
-        animation: {
-            duration: 500
-        }
-    }
+    options: opts
 });
 
 var myChart2 = new Chart(document.getElementById('mychart2'), {
     type: 'doughnut',
     data: {
-        labels: ["Efficiency", ""],
-        datasets: [{
-            label: 'Visitor',
-            data: ["1", "99"],
-            backgroundColor: [
-                initcolo,
-                "transparent"
-            ]
-        }]
+        datasets: ds
     },
-    options: {
-        responsive: true,
-        legend: false,
-        animation: {
-            duration: 500
-        }
-    }
+    options: opts
+});
+
+var myChart3 = new Chart(document.getElementById('mychart3'), {
+    type: 'doughnut',
+    data: {
+        datasets: ds
+    },
+    options: opts
+});
+var myChart4 = new Chart(document.getElementById('mychart4'), {
+    type: 'doughnut',
+    data: {
+        datasets: ds
+    },
+    options: opts
+});
+var myChart5 = new Chart(document.getElementById('mychart5'), {
+    type: 'doughnut',
+    data: {
+        datasets: ds
+    },
+    options: opts
+});
+var myChart6 = new Chart(document.getElementById('mychart6'), {
+    type: 'doughnut',
+    data: {
+        datasets: ds
+    },
+    options: opts
 });
 
 function toObject(map) {
@@ -94,43 +112,70 @@ function addData2(data) {
     myChart2.update(0);
 }
 
+function addData3(data) {
+    data = Math.round(data)
+    data > 100 ? data : 100
+    colo = perc2color(data)
+    alt = 100 - data
+    if (alt < 1) { alt = 0 }
+    myChart3.data.datasets.forEach((dataset) => {
+        dataset.data[0] = data;
+        dataset.data[1] = alt;
+        dataset.backgroundColor[0] = colo
+    });
+    document.getElementById('efficiency3').innerHTML = data + '%'
+    myChart3.update(0);
+}
+
+function addData4(data) {
+    data = Math.round(data)
+    data > 100 ? data : 100
+    colo = perc2color(data)
+    alt = 100 - data
+    if (alt < 1) { alt = 0 }
+    myChart4.data.datasets.forEach((dataset) => {
+        dataset.data[0] = data;
+        dataset.data[1] = alt;
+        dataset.backgroundColor[0] = colo
+    });
+    document.getElementById('efficiency4').innerHTML = data + '%'
+    myChart4.update(0);
+}
+
+function addData5(data) {
+    data = Math.round(data)
+    data > 100 ? data : 100
+    colo = perc2color(data)
+    alt = 100 - data
+    if (alt < 1) { alt = 0 }
+    myChart5.data.datasets.forEach((dataset) => {
+        dataset.data[0] = data;
+        dataset.data[1] = alt;
+        dataset.backgroundColor[0] = colo
+    });
+    document.getElementById('efficiency5').innerHTML = data + '%'
+    myChart5.update(0);
+}
+
+function addData6(data) {
+    data = Math.round(data)
+    data > 100 ? data : 100
+    colo = perc2color(data)
+    alt = 100 - data
+    if (alt < 1) { alt = 0 }
+    myChart6.data.datasets.forEach((dataset) => {
+        dataset.data[0] = data;
+        dataset.data[1] = alt;
+        dataset.backgroundColor[0] = colo
+    });
+    document.getElementById('efficiency6').innerHTML = data + '%'
+    myChart6.update(0);
+}
+
 function openmodal() {
     $('#passwordmodal').modal('show')
 }
 
-//get hourly cases
-
-eel.expose(hcases_left);
-
-function hcases_left(data) {
-    if (JSON.parse(data)) {
-        data = JSON.parse(data)
-        data = data.data
-        data = (data.reduce((data, b) => data.set(b.hr, (data.get(b.hr) || 0) + Number(b.cases)), new Map))
-        data = Array.from(data, ([name, value]) => ({ name, value }));
-        const sumcases = sumarray(data)
-        assigndata(data, 'l')
-        document.getElementById("cases1").innerHTML = sumcases
-    } else {
-        return 0;
-    }
-}
-
-eel.expose(hcases_right);
-
-function hcases_right(data) {
-    if (JSON.parse(data)) {
-        data = JSON.parse(data)
-        data = data.data
-        data = (data.reduce((data, b) => data.set(b.hr, (data.get(b.hr) || 0) + Number(b.cases)), new Map))
-        data = Array.from(data, ([name, value]) => ({ name, value }));
-        const sumcases = sumarray(data)
-        assigndata(data, 'r')
-        document.getElementById("cases2").innerHTML = sumcases
-    } else {
-        return 0;
-    }
-}
 
 // retrieve settings from python, and save on js
 eel.expose(set_jsconfigs);
@@ -147,13 +192,6 @@ function set_jsconfigs(clientid, left, right, targetl, targetr) {
 }
 
 
-//setconfigs
-eel.set_pyconfigs();
-//launch hourly cases
-eel.get_hcases()
-setInterval(function() {
-    eel.get_hcases()
-}, 1000 * 60 * 15);
 
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('actv').click()
@@ -164,14 +202,7 @@ function updatetarget() {
     document.getElementById('rangee').innerHTML = tgt
 }
 
-$('#submit').click(function() {
-    const fclient_id = document.getElementById("fclient_id").value;
-    const fteam = document.getElementById("fteam").value;
-    const fcanspercase = document.getElementById("fcanspercase").value;
-    target = document.getElementById("ftarget").value;
-    // alert('settings saved successfully')
-    document.getElementById('actv').click()
-});
+
 
 function perc2color(perc) {
     perc = perc / 1.5
@@ -247,34 +278,42 @@ function set_metrics(pload) {
 
 
     //  {"clientID":"L1","cans":"0","packs":"0","lcases":"0","cases":"0","lspeed":"0","tstamp":"13917942","targetcases":"240","canspercase":"24","unitspercase":"1","hr_output":"0,0,0,0,0,0,0,0,0"}
-    if (payload.clientID == left_l) {
 
-        //client id
-        document.getElementById("client_left").innerHTML = payload.clientID
-            // cans
-        document.getElementById("cans1").innerHTML = payload.cans
-            // speed
-        document.getElementById("speed1").innerHTML = payload.lspeed
-            // efficiency
-        speed = jsqueue(payload.lspeed, queue1)
-        eff = (speed / target_l) * 100
-        addData1(eff)
-        document.getElementById("target1").innerHTML = target_l
+    //labeller number
+    const lab_num = payload.clientID.replace(/^\D+/g, '');
 
+    //client id
+    document.getElementById("l" + lab_num).innerHTML = lab_num
+        // cans
+    document.getElementById("cans" + lab_num).innerHTML = payload.cans
+        // speed
+    document.getElementById("speed" + lab_num).innerHTML = payload.lspeed
+        // efficiency
+    eff = (payload.lspeed / target_l) * 100
+    switch (lab_num) {
+        case 1:
+            addData1(eff)
+            break;
+        case 2:
+            addData2(eff)
+            break;
+        case 3:
+            addData3(eff)
+            break;
+        case 4:
+            addData4(eff)
+            break;
+        case 5:
+            addData5(eff)
+            break;
+        case 6:
+            addData6(eff)
+            break;
+
+        default:
+            break;
     }
-    if (payload.clientID == right_l) {
 
-        const speed = jsqueue(payload.lspeed, queue2)
-        eff = (speed / target_r) * 100
-        addData2(eff)
-        document.getElementById("cans2").innerHTML = payload.cans
-            // speed
-        document.getElementById("speed2").innerHTML = speed
-        document.getElementById("target2").innerHTML = target_r
-            //client id
-        document.getElementById("client_right").innerHTML = payload.clientID
-
-    }
 
 
 }

@@ -1,9 +1,5 @@
 import eel
 from paho.mqtt import client as mqtt
-import threading
-import time
-from getshift import getshift
-from gethourly import hcases
 import os
 from dotenv import load_dotenv
 from resetRpi import restart
@@ -50,34 +46,7 @@ def messageSender(msg):
 
 # {"clientID":"L1","cans":"0","packs":"0","lcases":"0","cases":"0","lspeed":"0","tstamp":"13917942","targetcases":"240","canspercase":"24","unitspercase":"1","hr_output":"0,0,0,0,0,0,0,0,0"}
 
-@eel.expose
-def set_pyconfigs():
-    client_id = os.getenv('CLIENT_ID')
-    left = os.getenv('LEFT')
-    right = os.getenv('RIGHT')
-    target_l = os.getenv('TARGET_L')
-    target_r = os.getenv('TARGET_R')
-    print("setting pyconfigs")
-    eel.set_jsconfigs(client_id, left, right, target_l, target_r)
 
-
-
-@eel.expose
-def get_hcases():
-    lcase = hcases(os.getenv('LEFT'))
-    rcase = hcases(os.getenv('RIGHT'))
-    try:
-        eel.hcases_left(lcase)
-    except:
-        print(str(os.getenv('LEFT')) + ": Could not render hourly cases: " + str(lcase))
-    time.sleep(5)
-    
-    try: 
-        eel.hcases_right(rcase)
-    except:
-        print(str(os.getenv('LEFT')) + ": Could not render hourly cases: " + str(rcase))
-    
-    
    
 
 eel.start('index.html', host='localhost', port=27011, size=(1280,960), position=(0,0), cmdline_args=['--disable-infobars','--Kiosk'] )
