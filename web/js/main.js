@@ -26,14 +26,14 @@ const ds = [{
     ]
 }]
 
-let target_c1 = 300
-let target_c2 = 300
-let target_c3 = 300
-let target_c4 = 300
-let target_c6 = 300
-let target_c7 = 300
-let target_c8 = 300
-let target_c9 = 300
+let target_c1 = 200
+let target_c2 = 200
+let target_c3 = 200
+let target_c4 = 200
+let target_c6 = 200
+let target_c7 = 200
+let target_c8 = 200
+let target_c9 = 200
 
 
 
