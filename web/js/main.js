@@ -341,47 +341,45 @@ function set_metrics(pload) {
 
         //client id
         document.getElementById("c" + lab_num).innerHTML = 'SEAMER ' + lab_num
-            // cans
-        document.getElementById("cans" + lab_num).innerHTML = payload.cans
             // speed
         document.getElementById("DTIME" + lab_num).innerHTML = Math.floor(payload.downtime / 60)
         document.getElementById("cases" + lab_num).innerHTML = payload.cases
+        document.getElementById("ceff" + lab_num).innerHTML = Math.round(payload.cases / (target.tstamp * (payload.target / 3600)) * 100)
             // efficiency
 
         switch (parseInt(lab_num)) {
             case 1:
-                eff = Math.floor((payload.cspeed / target_c1) * 100)
+                eff = Math.floor((payload.cspeed / payload.target) * 100)
                 addData1(eff)
-                console.log("Eff 1 : " + eff)
                 break;
             case 2:
-                eff = Math.floor((payload.cspeed / target_c2) * 100)
+                eff = Math.floor((payload.cspeed / payload.target) * 100)
                 addData2(eff)
                 break;
             case 3:
-                eff = Math.floor((payload.cspeed / target_c3) * 100)
+                eff = Math.floor((payload.cspeed / payload.target) * 100)
                 addData3(eff)
                 break;
             case 4:
-                eff = Math.floor((payload.cspeed / target_c4) * 100)
+                eff = Math.floor((payload.cspeed / payload.target) * 100)
                 addData4(eff)
                 break;
 
             case 6:
-                eff = Math.floor((payload.cspeed / target_c6) * 100)
+                eff = Math.floor((payload.cspeed / payload.target) * 100)
                 addData6(eff)
                 console.log("L6 target" + target_c6)
                 break;
             case 7:
-                eff = Math.floor((payload.cspeed / target_c7) * 100)
+                eff = Math.floor((payload.cspeed / payload.target) * 100)
                 addData7(eff)
                 break;
             case 8:
-                eff = Math.floor((payload.cspeed / target_c8) * 100)
+                eff = Math.floor((payload.cspeed / payload.target) * 100)
                 addData8(eff)
                 break;
             case 9:
-                eff = Math.floor((payload.cspeed / target_c9) * 100)
+                eff = Math.floor((payload.cspeed / payload.target) * 100)
                 addData9(eff)
                 break;
 
