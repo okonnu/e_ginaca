@@ -341,10 +341,11 @@ function set_metrics(pload) {
 
         //client id
         document.getElementById("c" + lab_num).innerHTML = 'SEAMER ' + lab_num
+            // ceff
+        document.getElementById("ceff" + lab_num).innerHTML = Math.round(payload.cases / (target.tstamp * (payload.target / 3600)) * 100)
             // speed
         document.getElementById("DTIME" + lab_num).innerHTML = Math.floor(payload.downtime / 60)
         document.getElementById("cases" + lab_num).innerHTML = payload.cases
-            // document.getElementById("ceff" + lab_num).innerHTML = Math.round(payload.cases / (target.tstamp * (payload.target / 3600)) * 100)
             // efficiency
 
         switch (parseInt(lab_num)) {
