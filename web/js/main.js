@@ -67,8 +67,15 @@ var myChart4 = new Chart(document.getElementById('mychart4'), {
     },
     options: opts
 });
+var myChart5 = new Chart(document.getElementById('myChart5'), {
+    type: 'doughnut',
+    data: {
+        datasets: ds
+    },
+    options: opts
+});
 
-var myChart6 = new Chart(document.getElementById('mychart6'), {
+var myChart6 = new Chart(document.getElementById('myChart6'), {
     type: 'doughnut',
     data: {
         datasets: ds
@@ -90,6 +97,27 @@ var myChart8 = new Chart(document.getElementById('myChart8'), {
     options: opts
 });
 var myChart9 = new Chart(document.getElementById('myChart9'), {
+    type: 'doughnut',
+    data: {
+        datasets: ds
+    },
+    options: opts
+});
+var myChart10 = new Chart(document.getElementById('myChart10'), {
+    type: 'doughnut',
+    data: {
+        datasets: ds
+    },
+    options: opts
+});
+var myChart11 = new Chart(document.getElementById('myChart11'), {
+    type: 'doughnut',
+    data: {
+        datasets: ds
+    },
+    options: opts
+});
+var myChart12 = new Chart(document.getElementById('myChart12'), {
     type: 'doughnut',
     data: {
         datasets: ds
@@ -165,6 +193,22 @@ function addData4(data) {
     myChart4.update(0);
 }
 
+function addData5(data) {
+    data = Math.round(data)
+    data > 100 ? data : 100
+    colo = perc2color(data)
+    alt = 100 - data
+    if (alt < 1) { alt = 0 }
+    myChart5.data.datasets.forEach((dataset) => {
+        dataset.data[0] = data;
+        dataset.data[1] = alt;
+        dataset.backgroundColor[0] = colo
+    });
+    console.log(data)
+    document.getElementById('efficiency5').innerHTML = data + '%'
+    myChart5.update(0);
+}
+
 
 function addData6(data) {
     data = Math.round(data)
@@ -228,6 +272,54 @@ function addData9(data) {
     console.log(data)
     document.getElementById('efficiency9').innerHTML = data + '%'
     myChart9.update(0);
+}
+
+function addData10(data) {
+    data = Math.round(data)
+    data > 100 ? data : 100
+    colo = perc2color(data)
+    alt = 100 - data
+    if (alt < 1) { alt = 0 }
+    myChart10.data.datasets.forEach((dataset) => {
+        dataset.data[0] = data;
+        dataset.data[1] = alt;
+        dataset.backgroundColor[0] = colo
+    });
+    console.log(data)
+    document.getElementById('efficiency9').innerHTML = data + '%'
+    myChart10.update(0);
+}
+
+function addData11(data) {
+    data = Math.round(data)
+    data > 100 ? data : 100
+    colo = perc2color(data)
+    alt = 100 - data
+    if (alt < 1) { alt = 0 }
+    myChart11.data.datasets.forEach((dataset) => {
+        dataset.data[0] = data;
+        dataset.data[1] = alt;
+        dataset.backgroundColor[0] = colo
+    });
+    console.log(data)
+    document.getElementById('efficiency11').innerHTML = data + '%'
+    myChart11.update(0);
+}
+
+function addData12(data) {
+    data = Math.round(data)
+    data > 100 ? data : 100
+    colo = perc2color(data)
+    alt = 100 - data
+    if (alt < 1) { alt = 0 }
+    myChart12.data.datasets.forEach((dataset) => {
+        dataset.data[0] = data;
+        dataset.data[1] = alt;
+        dataset.backgroundColor[0] = colo
+    });
+    console.log(data)
+    document.getElementById('efficiency12').innerHTML = data + '%'
+    myChart12.update(0);
 }
 
 function openmodal() {
