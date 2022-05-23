@@ -424,7 +424,7 @@ function set_metrics(pload) {
 
 
     // {"clientID":"C7","target":"150","cans":" 1","canspercase":"48","cases":"0.0","cspeed":"0","tstamp":"25185","damages":"0","downtime":"0.01"}
-    if (payload.clientID.replace(/[0-9]/g, '') == 'C') {
+    if (payload.clientID.replace(/[0-9]/g, '') == 'G') {
 
 
         //labeller number
@@ -432,9 +432,9 @@ function set_metrics(pload) {
         // console.log(payload.clientID)
 
         //client id
-        document.getElementById("c" + lab_num).innerHTML = 'GINACA ' + lab_num
+        document.getElementById("G" + lab_num).innerHTML = 'GINACA ' + lab_num
             // ceff
-        document.getElementById("ceff" + lab_num).innerHTML = Math.floor(payload.efficiency)
+        document.getElementById("ceff" + lab_num).innerHTML = Math.floor(payload.fruitCount)
             // speed
         document.getElementById("DTIME" + lab_num).innerHTML = Math.floor(payload.downtime)
         document.getElementById("length" + lab_num).innerHTML = Math.floor(payload.totalFruitLength)
