@@ -429,11 +429,11 @@ function set_metrics(pload) {
 
         //labeller number
         const lab_num = payload.clientID.replace(/^\D+/g, '');
-        console.log(payload)
+        console.log(payload.clientID)
 
         //client id
-        document.getElementById("G" + lab_num).innerHTML = 'GINACA ' + lab_num
-            // ceff
+        // document.getElementById("G" + lab_num).innerHTML = 'GINACA ' + lab_num
+        // ceff
         document.getElementById("ceff" + lab_num).innerHTML = Math.floor(payload.fruitCount)
             // speed
         document.getElementById("DTIME" + lab_num).innerHTML = Math.floor(payload.downtime)
