@@ -286,7 +286,7 @@ function addData10(data) {
         dataset.backgroundColor[0] = colo
     });
     console.log(data)
-    document.getElementById('efficiency9').innerHTML = data + '%'
+    document.getElementById('efficiency10').innerHTML = data + '%'
     myChart10.update(0);
 }
 
@@ -460,7 +460,7 @@ function set_metrics(pload) {
                 break;
             case 5:
                 eff = Math.floor(payload.efficiency)
-                addData4(eff)
+                addData5(eff)
                 break;
 
             case 6:
