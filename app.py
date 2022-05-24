@@ -15,7 +15,7 @@ def on_connect(client, userdata, flags, rc):  # The callback for when the client
     client.subscribe(os.getenv('RESET_TOPIC'))
 
 def on_message(client, userdata, msg):  # The callback for when a PUBLISH message is received from the server.
-    print("Message received-> " + msg.topic + " " + str(msg.payload))  # Print a received msg
+    # print("Message received-> " + msg.topic + " " + str(msg.payload))  # Print a received msg
     if msg.topic == os.getenv('RESET_TOPIC'):
         print("Message received-> " + msg.topic + " " + str(msg.payload))  # Print a received msg
         restart()
