@@ -429,7 +429,7 @@ function set_metrics(pload) {
 
         //labeller number
         const lab_num = payload.clientID.replace(/^\D+/g, '');
-        // console.log(payload.clientID)
+        console.log(payload)
 
         //client id
         document.getElementById("G" + lab_num).innerHTML = 'GINACA ' + lab_num
