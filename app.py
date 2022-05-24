@@ -31,7 +31,6 @@ client.on_message = on_message  # Define callback function for receipt of a mess
 username = os.getenv('MQTT_USER')
 password = os.getenv('MQTT_PASS')
 client.username_pw_set(username, password)
-print(os.getenv('MQTT_PORT'))
 client.connect(os.getenv('MQTT_SERVER'))
 client.loop_start()  #Start loop
 
